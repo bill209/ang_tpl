@@ -7,66 +7,40 @@
 	<title>Template</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="js/libs/bootstrap-3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="js/libs/bootstrap-3.3.4/css/bootstrap-narrow-jumbotron.css">
+	<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.css">
+<!-- 	<link rel="stylesheet" href="css/metro-bootstrap-master/dist/css/metro-bootstrap.css"> -->
+	<!-- 	<link rel="stylesheet" href="js/libs/bootstrap-3.3.4/css/bootstrap-narrow-jumbotron.css"> -->
 	<link rel="stylesheet" href="css/main.css">
 </head>
-
-<body ng-app="AppName" ng-controller='mainCtrl'  ng-style='bodyBgColor'>
-
-<div class="container">
-			<div class="header clearfix">
-				<nav>
-					<ul class="nav nav-pills pull-right">
-						<li role="presentation" class="active"><a href="#">Home</a></li>
-						<li role="presentation"><a href="#">About</a></li>
-						<li role="presentation"><a href="#">Contact</a></li>
-					</ul>
-				</nav>
-				<h3 class="text-muted">Bill Rowland</h3>
-			</div>
-
-			<div class="jumbotron">
-				<h1>Template Builder</h1>
-				<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				<p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-			</div>
-
-			<div class="row marketing">
-				<div class="col-lg-6">
-					<h4>Included Packages</h4>
-					<p>Below are a list of included packages:</p>
-
-					<ul class="list-group">
-						<li class="list-group-item">angular.js</li>
-						<li class="list-group-item">bootstrap</li>
-						<li class="list-group-item">firebase</li>
-					</ul>
-				</div>
-
-				<div class="col-lg-6">
-					<h4>Subheading</h4>
-					<p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-					<h4>Subheading</h4>
-					<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-					<h4>Subheading</h4>
-					<p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				</div>
-			</div>
-
-			<footer class="footer">
-				<p>© Company 2014</p>
-			</footer>
-
+<!-- appName -->
+<body ng-app="Appology" ng-controller='bodyCtrl' ng-style='bodyBgColor'>
+<!-- routing -->
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<li role="presentation" ng-class="getClass('/main')"><a href="#/">Home</a></li>
+					<li role="presentation" ng-class="getClass('/about')"><a href="#/about" >About</a></li>
+					<li role="presentation" ng-class="getClass('/restCalls')"><a href="#/restCalls">Rest Calls</a></li>
+					<li role="presentation" ng-class="getClass('/colors')"><a href="#/colors">Colors</a></li>
+				</ul>
+			</nav>
 		</div>
+<!-- end routing -->
 
+	<div ng-view></div>
 
+	<footer class="footer">
+		<p>© Company 2014</p>
+	</footer>
 
 	<script src="js/libs/jquery/jquery-2.0.3.js"></script>
-	<script src="js/libs/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<!--	<script src="js/libs/angular/angular.min.js"></script> -->
+	<script src="js/libs/angular/angular-route.js"></script>
 	<script src="js/libs/bootstrap/js/bootstrap.min.js"></script>
 	<script src='js/main.js'></script>
+	<script src='js/svc.js'></script>
+	<script src='js/controllers.js'></script>
 	<script src='js/functions.js'></script>
 	<script src='js/db.js'></script>
 	<!-- firebase -->

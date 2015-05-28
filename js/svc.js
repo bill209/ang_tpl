@@ -1,34 +1,48 @@
 
-	var app = angular.module('NowPlaying', [], function(){
-	});
+app.factory('restCallsFactory', function($q, $http){
+	return {
+		// http get
+		getGoogleBooks: function(author){
+			var deferred = $q.defer();
 
-	app.factory('moviesFactory', function ($http) {
-		return {getMovies: function(scope) {
-			$http.get('php/servicesGet.php').success(function (data, status) {
-				scope.data = data.result.movies;
+			url = 'https://www.googleapis.com/books/v1/volumes?q=inauthor:' + author + '&maxresults=10';
+			$http
+			.get(url)
+			.then(function(d){
+				deferred.resolve(d.data.items);
 			});
-		}};
-	});
+			return deferred.promise;
+		},
+		// http jsonp
+		getOpenNotifySpacePeople: function(){
+			var deferred = $q.defer();
 
-	app.factory('movieFactoryP', ['$http', function($http){
-		return {
-			getMovies: function(scope){
+			url = 'http://api.open-notify.org/astros.json?callback=JSON_CALLBACK';
+			$http
+			.jsonp(url)
+        			.error(function (data, status, headers, config) {
 
-				var movieJson = '';
-				$http.post('php/services.php',{'service':'getMovies'})
-				.success(function(data, status, headers, config){
-					var movieData = addBookmarks(data.result.movies);
-					scope.data = angular.fromJson(movieData);
-				}).error(function(data, status, headers, config){
-					console.log('error');
-				});
-				return movieJson;
-			},
-			setupBookmarks: function(scope){
-				scope.alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
-			}
-		};
-	}]);
+			})
+			.then(function(d){
+				deferred.resolve(d.data);
+			});
+			return deferred.promise;
+		},
+		// http jsonp
+		getItunesMusic: function(artist){
+			var deferred = $q.defer();
+			
+			url = 'https://itunes.apple.com/search?term=' + artist + '&limit=10&callback=JSON_CALLBACK';
+			$http
+			.jsonp(url)
+			.then(function(d){
+				deferred.resolve(d.data.results);
+			});
+			return deferred.promise;
+		}
+	}
+
+});
 
 // example .servicer code
 	app.service('helloWorldFromService', function() {

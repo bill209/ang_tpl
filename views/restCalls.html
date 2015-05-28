@@ -1,0 +1,34 @@
+<div ng-controller="restCallsCtrl">
+	<div class="row marketing">
+
+		<div class="col-lg-4">
+			<h4>iTunes Songs</h4>
+			<ul id='iTunes' class="list-unstyled">
+				<li ng-repeat="song in iTunes | orderBy:song.releaseDate">
+					<span>{{song.trackName}}</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-4">
+			<h4>Terry Pratchett Books</h4>
+			<ul id='books' class="list-unstyled">
+				<li ng-repeat="book in books | orderBy:book.volumeInfo.publishDate">
+					<span>{{book.volumeInfo.title}}</span>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="col-lg-4">
+			<h4>People in Space Right Now</h4>
+			<h3>{{spacePeeps.number}}</h3>
+			<ol id='books' class="list-unstyled">
+				<li ng-repeat="peep in spacePeeps.people">
+					<span>{{peep.name}} is on {{peep.craft}}</span>
+				</li>
+			</ol>
+		</div>
+
+	</div>
+</div>

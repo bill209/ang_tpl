@@ -1,0 +1,23 @@
+<div id='colors' class='row' ng-controller="colorsCtrl">
+	<div class='col-md-2'></div>
+
+	<div class='col-md-8'>
+		<h1 class='fontAwesome'>font awesome</h1>
+		<h3 id="thumbnails-default">w/ Colors</h3>
+		<div class="bs-example">
+			<div class="row">
+
+				<div ng-repeat='icon in faicon.icons' class="col-sm-6 col-md-2">
+					<div class="thumbnail tile tile-medium tile-{{icon.color}} col-md-2">
+						<a href="http://fortawesome.github.io/Font-Awesome/icon/{{icon.faName}}/">
+							<h2>{{icon.color}}</h2>
+							<i class="fa fa-3x fa-{{icon.faName}}"></i>
+						</a>
+					</div>
+				</div>
+
+			</div> <!-- row -->
+		</div> <!-- bs example -->
+	</div> <!-- col md 8 -->
+	<div class='col-md-2'>wazzup</div>
+</div>
