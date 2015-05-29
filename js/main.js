@@ -19,6 +19,20 @@ app.service('configuration', function() {
 
 // directives ----------------------------------------------------------
 
+
+app.directive('toggleClass', function() {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.bind('click', function() {
+                element.toggleClass(attrs.toggleClass);
+console.log('hell');
+            });
+        }
+    };
+});
+
+
 app.directive('clock', ['dateFilter', '$timeout', function(dateFilter, $timeout){
 	return {
 		restrict: 'E',
@@ -36,6 +50,12 @@ app.directive('clock', ['dateFilter', '$timeout', function(dateFilter, $timeout)
 		}
 	};
 }]);
+
+app.directive('myCustomer', function() {
+	return {
+		template: 'Name: {{customer.name}} Address: {{customer.address}}'
+	};
+});
 
 
 // this limits the number of characters displayed on the page

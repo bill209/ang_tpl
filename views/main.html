@@ -1,6 +1,6 @@
 
 	<div class="container" ng-controller='mainCtrl'>
-
+		<p>check: {{testit}}</p>
 		<div class="jumbotron">
 			<h1>Template Builder</h1>
 			<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
@@ -16,12 +16,15 @@
 					<li class="list-group-item">angular.js</li>
 					<li class="list-group-item">bootstrap</li>
 					<li class="list-group-item">firebase</li>
+					<li class="list-group-item">font awesome</li>
 				</ul>
 			</div>
 
 			<div class="col-lg-6">
 				<h4>Directive: clock</h4>
 				<clock format="HH:mm:ss"></clock>
+				<h4>Directive: name</h4>
+				<div my-customer></div>
 
 				<h4>Filter: limit chars</h4>
 				<p> {{gettysburg | cut:true:100:' ...'}}</p>

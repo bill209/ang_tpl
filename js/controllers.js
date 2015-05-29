@@ -1,6 +1,11 @@
 app.controller('bodyCtrl',function ($scope, $location){
 	$scope.bodyBgColor={'background-color':'#ffffff'}
 
+	$scope.customer = {
+		name: 'Naomi',
+		address: '1600 Amphitheatre'
+	};
+
 	// routing: adding active class to nav item
 	$scope.getClass = function(path) {
 		if ($location.path().substr(0, path.length) == path) {
@@ -13,6 +18,11 @@ app.controller('bodyCtrl',function ($scope, $location){
 });
 
 app.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) {
+	// $scope.flipIt = function(){
+	// 	console.log('flipping');
+	// 	this.toggleClass('flipped');
+	// };
+	
 	var artist = 'jack+johnson';
 	var promise = restCallsFactory.getItunesMusic(artist);
 	promise.then(function(musicData){
@@ -29,11 +39,10 @@ app.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) 
 	promise.then(function(bookData){
 		$scope.books = bookData;
 	});
-
-
 });
 
 app.controller('mainCtrl', function ($scope, configuration){
+	$scope.testit ='it works!';
 
 	$scope.time = new Date();
 	$scope.numTotal = 0;
