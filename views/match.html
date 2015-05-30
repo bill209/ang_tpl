@@ -1,0 +1,37 @@
+<!-- blocks of colors borrowed from: http://talkslab.github.io/metro-bootstrap/components.html -->
+<div id='match' class='row' ng-controller="matchCtrl">
+	<div class='col-md-2'></div>
+
+	<div class='col-md-8'>
+		<h1 class='fontAwesome'>match game</h1>
+		<h3 id="thumbnails-default">w/ font awesome</h3>
+		<div class="bs-example">
+			<div class="row">
+
+				<div ng-repeat='icon in faicon.icons' class="col-md-3">
+
+					<div class="col-md-3xxx">
+						<div class="flip"> 
+							<div class="card" toggle-class="flipped"> 
+
+								<div class="face front"> 
+									<div class="thumbnail tile tile-large tile-{{icon.color}} col-md-3xxx">
+										<h2>{{icon.color}}</h2>
+									</div>
+								</div>
+
+								<div class="face back"> 
+									<div class="thumbnail tile tile-large tile-{{icon.color}} col-md-3xxx">
+										<i class="fa fa-4x fa-{{icon.faName}}"></i>
+									</div>
+								</div>
+
+							</div> 
+						</div> 
+					</div>
+				</div>
+
+			</div> <!-- row -->
+		</div> <!-- bs example -->
+	</div> <!-- col md 8 -->
+</div>

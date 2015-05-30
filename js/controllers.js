@@ -1,3 +1,7 @@
+app.controller('aboutCtrl',function($scope){
+
+});
+
 app.controller('bodyCtrl',function ($scope, $location){
 	$scope.bodyBgColor={'background-color':'#ffffff'}
 
@@ -42,8 +46,6 @@ app.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) 
 });
 
 app.controller('mainCtrl', function ($scope, configuration){
-	$scope.testit ='it works!';
-
 	$scope.time = new Date();
 	$scope.numTotal = 0;
 	$scope.gettysburg = 'Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in liberty, and dedicated to the proposition that /"all men are created equal./"';
@@ -104,4 +106,61 @@ $scope.temp = JSON.stringify({"color":"bluish"});
 		{"faName":"buysellads","color":"concrete"},
 		{"faName":"transgender-alt","color":"asbestos"}
 		]};
+});
+
+app.controller('matchCtrl', function ($scope){
+$scope.temp = JSON.stringify({"color":"bluish"});
+	$scope.faicon = 
+		{ "icons":[
+		{"faName":"bed","color":"blue"},
+		{"faName":"connectdevelop","color":"green"},
+		{"faName":"forumbee","color":"red"},
+		{"faName":"mars","color":"yellow"},
+		{"faName":"street-view","color":"pink"},
+		{"faName":"ship","color":"purple"},
+		{"faName":"venus","color":"lime"},
+		{"faName":"whatsapp","color":"magenta"},
+		{"faName":"dashcube","color":"teal"},
+		{"faName":"heartbeat","color":"turquoise"},
+		{"faName":"shirtsinbulk","color":"sea"},
+		{"faName":"subway","color":"emerald"},
+		{"faName":"diamond","color":"nephritis"},
+		{"faName":"sellsy","color":"river"},
+		{"faName":"home","color":"belize"},
+		{"faName":"user-secret","color":"amethyst"}
+		]};
+	var choices = [
+		{"faName":"bed"},
+		{"faName":"connectdevelop"},
+		{"faName":"forumbee"},
+		{"faName":"mars"},
+		{"faName":"street-view"},
+		{"faName":"ship"},
+		{"faName":"venus"},
+		{"faName":"whatsapp"},
+		{"faName":"dashcube"},
+		{"faName":"heartbeat"},
+		{"faName":"shirtsinbulk"},
+		{"faName":"subway"},
+		{"faName":"diamond"},
+		{"faName":"sellsy"},
+		{"faName":"home"},
+		{"faName":"user-secret"},
+		{"faName":"cart-plus"},
+		{"faName":"leanpub"},
+		{"faName":"motorcycle"},
+		{"faName":"skyatlas"},
+		{"faName":"viacoin"},
+		{"faName":"server"},
+		{"faName":"user-times"},
+		{"faName":"facebook-official"},
+		{"faName":"pinterest-p"},
+		{"faName":"medium"},
+		{"faName":"user-plus"},
+		{"faName":"buysellads"},
+		{"faName":"transgender-alt"}
+		];
+
+		var gameBoard = setupMatches(4,choices);
+
 });

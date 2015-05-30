@@ -26,7 +26,6 @@ app.directive('toggleClass', function() {
         link: function(scope, element, attrs) {
             element.bind('click', function() {
                 element.toggleClass(attrs.toggleClass);
-console.log('hell');
             });
         }
     };
@@ -103,6 +102,10 @@ app.config(['$routeProvider',
 		when('/colors', {
 			templateUrl: 'views/colors.html',
 			controller: 'colorsCtrl'
+		}).
+		when('/match', {
+			templateUrl: 'views/match.html',
+			controller: 'matchCtrl'
 		}).
 		otherwise({
 			redirectTo: '/main'
