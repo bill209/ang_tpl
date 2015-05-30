@@ -1,14 +1,21 @@
+/* modifications */
+#restCalls .flip {
+  height: 300px;
+}
+
+#match .flip {
+  height: 250px;
+}
+/* end modifications */
 
 .face.back {
   height: 100%;
   width: 100%;
 }
 
-
 .flip {
   -webkit-perspective: 800;
    /*width: 200px;*/
-   height: 300px;
     position: relative;
 /*    margin: 50px auto;*/
 }
