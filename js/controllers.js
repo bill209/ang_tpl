@@ -17,8 +17,7 @@ app.controller('bodyCtrl',function ($scope, $location){
 		} else {
 			return ""
 		}
-	}	
-
+	}
 });
 
 app.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) {
@@ -26,7 +25,6 @@ app.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) 
 	// 	console.log('flipping');
 	// 	this.toggleClass('flipped');
 	// };
-	
 	var artist = 'jack+johnson';
 	var promise = restCallsFactory.getItunesMusic(artist);
 	promise.then(function(musicData){
@@ -73,7 +71,7 @@ app.controller('mainCtrl', function ($scope, configuration){
 });
 
 app.controller('colorsCtrl', function ($scope){
-$scope.temp = JSON.stringify({"color":"bluish"});
+
 	$scope.faicon = 
 		{ "icons":[
 		{"faName":"bed","color":"blue"},
@@ -109,26 +107,38 @@ $scope.temp = JSON.stringify({"color":"bluish"});
 });
 
 app.controller('matchCtrl', function ($scope){
-$scope.temp = JSON.stringify({"color":"bluish"});
-	$scope.faicon = 
-		{ "icons":[
-		{"faName":"bed","color":"blue"},
-		{"faName":"connectdevelop","color":"green"},
-		{"faName":"forumbee","color":"red"},
-		{"faName":"mars","color":"yellow"},
-		{"faName":"street-view","color":"pink"},
-		{"faName":"ship","color":"purple"},
-		{"faName":"venus","color":"lime"},
-		{"faName":"whatsapp","color":"magenta"},
-		{"faName":"dashcube","color":"teal"},
-		{"faName":"heartbeat","color":"turquoise"},
-		{"faName":"shirtsinbulk","color":"sea"},
-		{"faName":"subway","color":"emerald"},
-		{"faName":"diamond","color":"nephritis"},
-		{"faName":"sellsy","color":"river"},
-		{"faName":"home","color":"belize"},
-		{"faName":"user-secret","color":"amethyst"}
-		]};
+
+	var colors=[
+		{"color":"blue"},
+		{"color":"green"},
+		{"color":"red"},
+		{"color":"yellow"},
+		{"color":"pink"},
+		{"color":"purple"},
+		{"color":"lime"},
+		{"color":"magenta"},
+		{"color":"teal"},
+		{"color":"turquoise"},
+		{"color":"sea"},
+		{"color":"emerald"},
+		{"color":"nephritis"},
+		{"color":"river"},
+		{"color":"belize"},
+		{"color":"amethyst"},
+		{"color":"wisteria"},
+		{"color":"asphalt"},
+		{"color":"midnight"},
+		{"color":"sunflower"},
+		{"color":"orange"},
+		{"color":"carrot"},
+		{"color":"pumpkin"},
+		{"color":"alizarin"},
+		{"color":"pomegranate"},
+		{"color":"clouds"},
+		{"color":"silver"},
+		{"color":"concrete"},
+		{"color":"asbestos"}
+		];
 	var choices = [
 		{"faName":"bed"},
 		{"faName":"connectdevelop"},
@@ -160,7 +170,6 @@ $scope.temp = JSON.stringify({"color":"bluish"});
 		{"faName":"buysellads"},
 		{"faName":"transgender-alt"}
 		];
-
-		var gameBoard = setupMatches(4,choices);
-
+		$scope.gameBoard = [];
+		$scope.gameBoard = setupMatches(8,choices,colors);
 });
