@@ -19,6 +19,9 @@ app.service('configuration', function() {
 
 // directives ----------------------------------------------------------
 
+app.directive('matchIt', function(i){
+	console.log('i',i);
+});
 
 app.directive('toggleClass', function() {
     return {

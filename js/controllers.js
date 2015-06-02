@@ -171,5 +171,5 @@ app.controller('matchCtrl', function ($scope){
 		{"faName":"transgender-alt"}
 		];
 		$scope.gameBoard = [];
-		$scope.gameBoard = setupMatches(8,choices,colors);
+		$scope.gameBoard = setupMatches(2,choices,colors);
 });
