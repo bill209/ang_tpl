@@ -4,25 +4,26 @@
 
 	<div class='col-md-8'>
 		<h1 class='fontAwesome'>match game</h1>
+		<p  matchIt("z")>eh?</p> 
+
 		<h3 id="thumbnails-default">w/ font awesome</h3>
 		<div class="bs-example">
 			<div class="row">
-
-				<div ng-repeat='icon in faicon.icons' class="col-md-3">
+				<div ng-repeat='tile in gameBoard track by $index' class="col-md-3">
 
 					<div class="col-md-3xxx">
 						<div class="flip"> 
 							<div class="card" toggle-class="flipped"> 
 
 								<div class="face front"> 
-									<div class="thumbnail tile tile-large tile-{{icon.color}} col-md-3xxx">
-										<h2>{{icon.color}}</h2>
+									<div class="thumbnail tile tile-large tile-{{tile.color}} col-md-3xxx">
+										<h2>{{tile.color}}</h2>
 									</div>
 								</div>
 
-								<div class="face back"> 
-									<div class="thumbnail tile tile-large tile-{{icon.color}} col-md-3xxx">
-										<i class="fa fa-4x fa-{{icon.faName}}"></i>
+								<div class="face back" matchIt("z")> 
+									<div class="thumbnail tile tile-large tile-{{tile.color}} col-md-3xxx">
+										<i class="fa fa-4x fa-{{tile.icon}}"></i>
 									</div>
 								</div>
 

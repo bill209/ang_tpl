@@ -19,6 +19,9 @@ app.service('configuration', function() {
 
 // directives ----------------------------------------------------------
 
+app.directive('matchIt', function(i){
+	console.log('i',i);
+});
 
 app.directive('toggleClass', function() {
     return {
@@ -86,26 +89,27 @@ app.filter('cut', function () {
 // routing
 app.config(['$routeProvider',
 	function($routeProvider) {
+console.log('ROUTEPROVIDER',$routeProvider);		
 		$routeProvider.
 		when('/main', {
-			templateUrl: 'views/main.html',
-			controller: 'mainCtrl'
+			templateUrl: 'views/main.html'
+//			controller: 'mainCtrl'
 		}).
 		when('/restCalls', {
-			templateUrl: 'views/restCalls.html',
-			controller: 'restCallsCtrl'
+			templateUrl: 'views/restCalls.html'
+//			controller: 'restCallsCtrl'
 		}).
 		when('/about', {
-			templateUrl: 'views/about.html',
-			controller: 'aboutCtrl'
+			templateUrl: 'views/about.html'
+//			controller: 'aboutCtrl'
 		}).
 		when('/colors', {
-			templateUrl: 'views/colors.html',
-			controller: 'colorsCtrl'
+			templateUrl: 'views/colors.html'
+//			controller: 'colorsCtrl'
 		}).
 		when('/match', {
-			templateUrl: 'views/match.html',
-			controller: 'matchCtrl'
+			templateUrl: 'views/match.html'
+//			controller: 'matchCtrl'
 		}).
 		otherwise({
 			redirectTo: '/main'
