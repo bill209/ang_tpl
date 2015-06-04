@@ -107,6 +107,21 @@ app.controller('colorsCtrl', function ($scope){
 });
 
 app.controller('matchCtrl', function ($scope){
+	$scope.firstPick = '';
+
+	$scope.pickMe = function($event, picked){
+console.log('$event.currentTarget',$event.currentTarget);
+		if($scope.firstPick == ''){
+			$scope.firstPick = picked;
+		} else {
+			if($scope.firstPick == picked){
+				console.log('match');
+			} else {
+				console.log('no match')
+			}
+			$scope.firstPick = '';
+		}
+	};
 
 	var colors=[
 		{"color":"blue"},

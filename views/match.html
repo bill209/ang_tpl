@@ -4,7 +4,6 @@
 
 	<div class='col-md-8'>
 		<h1 class='fontAwesome'>match game</h1>
-		<p  matchIt("z")>eh?</p> 
 
 		<h3 id="thumbnails-default">w/ font awesome</h3>
 		<div class="bs-example">
@@ -15,7 +14,7 @@
 						<div class="flip"> 
 							<div class="card" toggle-class="flipped"> 
 
-								<div class="face front"> 
+								<div class="face front" ng-click="pickMe($event,tile.icon)"> 
 									<div class="thumbnail tile tile-large tile-{{tile.color}} col-md-3xxx">
 										<h2>{{tile.color}}</h2>
 									</div>
