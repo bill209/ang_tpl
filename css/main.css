@@ -105,3 +105,6 @@ footer {
 	margin: 0;	
 }
 
+.matchedTile {
+	background-color: #ddd;
+}

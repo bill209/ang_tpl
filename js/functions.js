@@ -13,11 +13,14 @@ function setupMatches(items, choices, colors){
 		chosen.push({"icon": choices[pic].faName});
 		// remove the item from choices so it will not be chosen again
 		choices.splice(pic, 1);
-	}	// double the array by doubling the items so there are now two of each //
-
+	}	
+	// double the array by doubling the items so there are now two of each //
 	var x = doubleTheArray(chosen);
+	// add a random color to each tile
 	var y = addColors(x, colors);
-	return y;
+	// return a randomized array
+	return y.sort(function(){return(Math.round(Math.random())-0.5)});
+//	return y;
 }
 
 var doubleTheArray = function(a){
