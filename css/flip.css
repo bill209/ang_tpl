@@ -4,7 +4,8 @@
 }
 
 #match .flip {
-  height: 250px;
+  /* located in tile.css for responsive application */
+/*  height: 250px;*/
 }
 /* end modifications */
 

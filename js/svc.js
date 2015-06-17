@@ -1,3 +1,30 @@
+app.factory('matchFactory', function($q, $http) {
+	return {
+		getColors: function(){
+			console.log('getcolors');
+			var deferred = $q.defer();
+			var url ='data/colors.json';
+			$http
+				.get(url)
+				.then(function(d){
+					deferred.resolve(angular.fromJson(d.data));
+				});
+			return deferred.promise;
+		},
+		getIcons: function(){
+			console.log('geticons');
+			var deferred = $q.defer();
+			var url ='data/icons.json';
+			$http
+				.get(url)
+				.then(function(d){
+console.log('d',d);
+					deferred.resolve(angular.fromJson(d.data));
+				});
+			return deferred.promise;
+		}		
+	}
+});
 
 app.factory('restCallsFactory', function($q, $http){
 	return {
@@ -5,7 +32,7 @@ app.factory('restCallsFactory', function($q, $http){
 		getGoogleBooks: function(author){
 			var deferred = $q.defer();
 
-			url = 'https://www.googleapis.com/books/v1/volumes?q=inauthor:' + author + '&maxresults=10';
+			var url = 'https://www.googleapis.com/books/v1/volumes?q=inauthor:' + author + '&maxresults=10';
 			$http
 			.get(url)
 			.then(function(d){

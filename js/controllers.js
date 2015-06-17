@@ -1,3 +1,23 @@
+app.controller('test', function($scope){
+	$scope.testClass1 = false;
+	$scope.testClass2 = false;
+
+	$scope.applyClass2 = function(){
+		if($scope.testClass2){
+			$scope.testClass2 = false;
+		} else {
+			$scope.testClass2 = true;
+		}
+	}
+	$scope.applyClass3 = function(){
+		if($scope.testClass3){
+			$scope.testClass3 = false;
+		} else {
+			$scope.testClass3 = true;
+		}
+	}
+});
+
 app.controller('aboutCtrl',function($scope){
 
 });
@@ -70,106 +90,70 @@ app.controller('mainCtrl', function ($scope, configuration){
 
 });
 
-app.controller('colorsCtrl', function ($scope){
-
-	$scope.faicon = 
-		{ "icons":[
-		{"faName":"bed","color":"blue"},
-		{"faName":"connectdevelop","color":"green"},
-		{"faName":"forumbee","color":"red"},
-		{"faName":"mars","color":"yellow"},
-		{"faName":"street-view","color":"pink"},
-		{"faName":"ship","color":"purple"},
-		{"faName":"venus","color":"lime"},
-		{"faName":"whatsapp","color":"magenta"},
-		{"faName":"dashcube","color":"teal"},
-		{"faName":"heartbeat","color":"turquoise"},
-		{"faName":"shirtsinbulk","color":"sea"},
-		{"faName":"subway","color":"emerald"},
-		{"faName":"diamond","color":"nephritis"},
-		{"faName":"sellsy","color":"river"},
-		{"faName":"home","color":"belize"},
-		{"faName":"user-secret","color":"amethyst"},
-		{"faName":"cart-plus","color":"wisteria"},
-		{"faName":"leanpub","color":"asphalt"},
-		{"faName":"motorcycle","color":"midnight"},
-		{"faName":"skyatlas","color":"sunflower"},
-		{"faName":"viacoin","color":"orange"},
-		{"faName":"server","color":"carrot"},
-		{"faName":"user-times","color":"pumpkin"},
-		{"faName":"facebook-official","color":"alizarin"},
-		{"faName":"pinterest-p","color":"pomegranate"},
-		{"faName":"medium","color":"clouds"},
-		{"faName":"user-plus","color":"silver"},
-		{"faName":"buysellads","color":"concrete"},
-		{"faName":"transgender-alt","color":"asbestos"}
-		]};
+app.controller('colorsCtrl', function ($scope, matchFactory){
+	$scope.icons = {};
+	var promise = matchFactory.getColors();
+	// retrieve a list of potential colors to use for the tiles
+	promise.then(function(colorData){
+		var colors = colorData;
+		var promise = matchFactory.getIcons();
+		// retrieve a list of potential icons to use for the tiles
+		promise.then(function(iconData){
+			var icons = iconData;
+			for(i=0;i<icons.length;i++){
+				$scope.icons[i] = {'faName':icons[i].faName,'color':colors[i].color};
+			}
+		});
+	});
 });
 
-app.controller('matchCtrl', function ($scope){
+app.controller('matchCtrl', function ($scope, $timeout, matchFactory){
+	$scope.firstPick = '';
+	$scope.pick1 = -1;
+	$scope.pick2 = -1;
+	$scope.winners = [];
+	$scope.gameBoard = [];
 
-	var colors=[
-		{"color":"blue"},
-		{"color":"green"},
-		{"color":"red"},
-		{"color":"yellow"},
-		{"color":"pink"},
-		{"color":"purple"},
-		{"color":"lime"},
-		{"color":"magenta"},
-		{"color":"teal"},
-		{"color":"turquoise"},
-		{"color":"sea"},
-		{"color":"emerald"},
-		{"color":"nephritis"},
-		{"color":"river"},
-		{"color":"belize"},
-		{"color":"amethyst"},
-		{"color":"wisteria"},
-		{"color":"asphalt"},
-		{"color":"midnight"},
-		{"color":"sunflower"},
-		{"color":"orange"},
-		{"color":"carrot"},
-		{"color":"pumpkin"},
-		{"color":"alizarin"},
-		{"color":"pomegranate"},
-		{"color":"clouds"},
-		{"color":"silver"},
-		{"color":"concrete"},
-		{"color":"asbestos"}
-		];
-	var choices = [
-		{"faName":"bed"},
-		{"faName":"connectdevelop"},
-		{"faName":"forumbee"},
-		{"faName":"mars"},
-		{"faName":"street-view"},
-		{"faName":"ship"},
-		{"faName":"venus"},
-		{"faName":"whatsapp"},
-		{"faName":"dashcube"},
-		{"faName":"heartbeat"},
-		{"faName":"shirtsinbulk"},
-		{"faName":"subway"},
-		{"faName":"diamond"},
-		{"faName":"sellsy"},
-		{"faName":"home"},
-		{"faName":"user-secret"},
-		{"faName":"cart-plus"},
-		{"faName":"leanpub"},
-		{"faName":"motorcycle"},
-		{"faName":"skyatlas"},
-		{"faName":"viacoin"},
-		{"faName":"server"},
-		{"faName":"user-times"},
-		{"faName":"facebook-official"},
-		{"faName":"pinterest-p"},
-		{"faName":"medium"},
-		{"faName":"user-plus"},
-		{"faName":"buysellads"},
-		{"faName":"transgender-alt"}
-		];
-		$scope.gameBoard = [];
-		$scope.gameBoard = setupMatches(2,choices,colors);
+
+	var promise = matchFactory.getColors();
+	// retrieve a list of potential colors to use for the tiles
+	promise.then(function(colorData){
+		var colors = colorData;
+		var promise = matchFactory.getIcons();
+		// retrieve a list of potential icons to use for the tiles
+		promise.then(function(iconData){
+			var icons = iconData;
+			$scope.gameBoard = setupMatches(8,icons,colors);
+		});
+	});
+
+	$scope.pickMe = function($index, picked){
+		if($scope.firstPick == ''){
+			$scope.firstPick = picked;
+			$scope.pick1 = $index;
+		} else {
+			$scope.pick2 = $index
+
+			if($scope.firstPick == picked){
+				$timeout(matchResult,1000);
+			} else {
+				$timeout(noMatchResult,1000);
+			}
+			$scope.firstPick = '';
+		}
+	};
+
+	function matchResult(){
+		$scope.winners[$scope.pick1] = 'true';
+		$scope.winners[$scope.pick2] = 'true';
+		// $scope.pick1 = -1;
+		// $scope.pick2 = -1;
+		$scope.matchResult = 'yay';
+	}
+
+	function noMatchResult(){
+		$scope.pick1 = -1;
+		$scope.pick2 = -1;
+		$scope.matchResult = 'boo';
+	}
 });

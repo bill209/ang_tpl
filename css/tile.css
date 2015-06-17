@@ -83,6 +83,110 @@
 	box-sizing: border-box;
 }
 /* added */
+
+/* match */
+
+#match h1 {
+	color: #888;
+	font-size: 120px;
+	font-family: museo-slab, Georgia, "Times New Roman", Times, serif;
+	font-weight: 500;	
+}
+
+#match h2 {
+	font-size: 36px;
+	font-family: "Segoe UI Light","Helvetica Neue","Segoe UI","Segoe WP",sans-serif;
+	font-weight: 100;
+	line-height: 1.1;
+	color: #fff;
+}
+
+#match h3 {
+	font-family: "Segoe UI Light","Helvetica Neue","Segoe UI","Segoe WP",sans-serif;
+	font-weight: 100;
+	line-height: 1.1;
+	color: inherit;
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+
+#match h2, #match i {
+	padding: 0;
+	margin: 0;	
+}
+
+.matchedTile {
+	background-color: #ddd;
+}
+
+
+@media (min-width: 850px) {
+	.tile.tile-sizer {
+		height: 150px;
+		width: 150px;
+	}
+	#match h2, #match i {
+		line-height: 150px;
+	}
+	#match .flip {
+		height: 150px;
+	}
+}
+
+@media (min-width: 1000px) {
+	.tile.tile-sizer {
+		height: 175px;
+		width: 175px;
+	}
+	#match h2, #match i {
+		line-height: 175px;
+	}
+	#match .flip {
+		height: 175px;
+	}
+}
+
+@media (min-width: 1150px) {
+	.tile.tile-sizer {
+		height: 200px;
+		width: 200px;
+	}
+	#match h2, #match i {
+		line-height: 200px;
+	}
+	#match .flip {
+		height: 200px;
+	}
+}
+
+@media (min-width: 1300px) {
+	.tile.tile-sizer {
+		height: 225px;
+		width: 225px;
+	}
+	#match h2, #match i {
+		line-height: 225px;
+	}
+	#match .flip {
+		height: 225px;
+	}
+}
+
+@media (min-width: 1450px) {
+	.tile.tile-sizer {
+		height: 250px;
+		width: 250px;
+	}
+	#match h2, #match i {
+		line-height: 250px;
+	}
+	#match .flip {
+		height: 250px;
+	}
+}
+
+
+
 .tile.tile-large {
 	height: 250px;
 	width: 250px;
