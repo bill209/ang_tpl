@@ -106,6 +106,9 @@ app.config(['$routeProvider',
 			templateUrl: 'views/match.html'
 //			controller: 'matchCtrl'
 		}).
+		when('/test', {
+			templateUrl: 'views/test.html'
+		}).
 		otherwise({
 			redirectTo: '/main'
 		});

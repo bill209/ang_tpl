@@ -12,16 +12,16 @@
 
 					<div class="col-md-3xxx">
 						<div class="flip"> 
-							<div class="card"  ng-class="{flipped: $index == pick1 || $index == pick2}"> 
+							<div class="card"  ng-class="{flipped: $index == pick1 || $index == pick2 || (winners[$index] == 'true')}"> 
 
 								<div class="face front" ng-click="pickMe($index,tile.icon)"> 
-									<div class="thumbnail tile tile-large tile-{{tile.color}} col-md-3xxx"  ng-class="{'matchedTile': winners[$index] == 'true'}">
-										<h2>{{tile.color}}{{matchResult}}:{{winners[$index]}}</h2>
+									<div class="thumbnail tile tile-sizer tile-{{tile.color}} col-md-3xxx"  >
+										<h2>{{tile.color}}</h2>
 									</div>
 								</div>
 
-								<div class="face back" matchIt("z")> 
-									<div class="thumbnail tile tile-large tile-{{tile.color}} col-md-3xxx">
+								<div class="face back" matchIt("z") > 
+									<div class="thumbnail tile tile-sizer tile-{{tile.color}} col-md-3xxx" ng-class="{'spinCard': winners[$index] == 'true'}">
 										<i class="fa fa-4x fa-{{tile.icon}}"></i>
 									</div>
 								</div>

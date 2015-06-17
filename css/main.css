@@ -73,14 +73,14 @@ footer {
 	color: #fff;
 }
 
-#colors h1, #match h1 {
+#colors h1 {
 	color: #888;
 	font-size: 120px;
 	font-family: museo-slab, Georgia, "Times New Roman", Times, serif;
 	font-weight: 500;	
 }
 
-#colors h2, #match h2 {
+#colors h2 {
 	font-size: 36px;
 	font-family: "Segoe UI Light","Helvetica Neue","Segoe UI","Segoe WP",sans-serif;
 	font-weight: 100;
@@ -88,7 +88,7 @@ footer {
 	color: #fff;
 }
 
-#colors h3, #match h3 {
+#colors h3 {
 	font-family: "Segoe UI Light","Helvetica Neue","Segoe UI","Segoe WP",sans-serif;
 	font-weight: 100;
 	line-height: 1.1;
@@ -98,13 +98,3 @@ footer {
 }	
 
 
-/* match */
-#match h2, #match i {
-	line-height: 250px;
-	padding: 0;
-	margin: 0;	
-}
-
-.matchedTile {
-	background-color: #ddd;
-}

@@ -1,3 +1,23 @@
+app.controller('test', function($scope){
+	$scope.testClass1 = false;
+	$scope.testClass2 = false;
+
+	$scope.applyClass2 = function(){
+		if($scope.testClass2){
+			$scope.testClass2 = false;
+		} else {
+			$scope.testClass2 = true;
+		}
+	}
+	$scope.applyClass3 = function(){
+		if($scope.testClass3){
+			$scope.testClass3 = false;
+		} else {
+			$scope.testClass3 = true;
+		}
+	}
+});
+
 app.controller('aboutCtrl',function($scope){
 
 });
@@ -103,7 +123,7 @@ app.controller('matchCtrl', function ($scope, $timeout, matchFactory){
 		// retrieve a list of potential icons to use for the tiles
 		promise.then(function(iconData){
 			var icons = iconData;
-			$scope.gameBoard = setupMatches(2,icons,colors);
+			$scope.gameBoard = setupMatches(8,icons,colors);
 		});
 	});
 
@@ -126,8 +146,8 @@ app.controller('matchCtrl', function ($scope, $timeout, matchFactory){
 	function matchResult(){
 		$scope.winners[$scope.pick1] = 'true';
 		$scope.winners[$scope.pick2] = 'true';
-		$scope.pick1 = -1;
-		$scope.pick2 = -1;
+		// $scope.pick1 = -1;
+		// $scope.pick2 = -1;
 		$scope.matchResult = 'yay';
 	}
 

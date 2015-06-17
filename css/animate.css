@@ -1,0 +1,61 @@
+
+/* test */
+#test { }
+#two, #three { margin: 20px; float: left; }
+#test div div { display: inline-block; height: 200px; width: 200px;  background-color: #ddd; color: #fff; }
+#test p { cursor: pointer;  color: #888; }
+
+#two div, #three div {  -webkit-transition: -webkit-transform 1s ease-in; }
+
+@-webkit-keyframes rotate3{
+    0% { -webkit-transform: scale(1) rotate(0);}
+    50% { -webkit-transform: scale(0) rotate(360deg)}
+    100% { -webkit-transform: scale(1) rotate(0deg)}
+    100% { background-color: transparent; }
+}
+@-o-keyframes rotate {}
+@-moz-keyframes rotate{}
+@keyframes rotate{}
+
+.rotate2 {
+     -webkit-transform: rotate(360deg) scale(0);
+}
+
+.rotate3 {
+    animation:rotate3 1s linear;
+    -webkit-animation: rotate3 2s linear forwards;
+ /* */
+ }
+
+
+/* Match Game */
+
+.spinCard {
+    -webkit-animation: spinCard 1.5s linear forwards;
+ /* */
+ }
+
+@-webkit-keyframes spinCard{
+    0% { -webkit-transform: scale(1) rotate(0);}
+    60% { -webkit-transform: scale(0) rotate(360deg)}
+    100% { -webkit-transform: scale(1) rotate(0deg)}
+    100% { background-color: transparent; color: #34495e; }
+}
+@-o-keyframes rotate {
+    0% { -webkit-transform: scale(1) rotate(0);}
+    60% { -webkit-transform: scale(0) rotate(360deg)}
+    100% { -webkit-transform: scale(1) rotate(0deg)}
+    100% { background-color: transparent; color: #34495e; }    
+}
+@-moz-keyframes rotate{
+    0% { -webkit-transform: scale(1) rotate(0);}
+    60% { -webkit-transform: scale(0) rotate(360deg)}
+    100% { -webkit-transform: scale(1) rotate(0deg)}
+    100% { background-color: transparent; color: #34495e; }
+}
+@keyframes rotate{
+    0% { -webkit-transform: scale(1) rotate(0);}
+    60% { -webkit-transform: scale(0) rotate(360deg)}
+    100% { -webkit-transform: scale(1) rotate(0deg)}
+    100% { background-color: transparent; color: #34495e; }
+}
