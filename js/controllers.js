@@ -1,6 +1,7 @@
 (function() {
 	'use strict';
 
+// test view controller
 	angular
 		.module('Appology')
 		.controller('test', function($scope){
@@ -23,12 +24,14 @@
 			}
 		});
 
+// about view controller
 	angular
 		.module('Appology')
 		.controller('aboutCtrl',function($scope){
 
 		});
 
+//  body controller
 	angular
 		.module('Appology')
 		.controller('bodyCtrl',function ($scope, $location){
@@ -49,6 +52,7 @@
 			}
 		});
 
+// restCalls view controller
 	angular
 		.module('Appology')
 		.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) {
@@ -74,6 +78,7 @@
 			});
 		});
 
+// main view controller
 	angular
 		.module('Appology')
 		.controller('mainCtrl', function ($scope, configuration){
@@ -81,16 +86,16 @@
 			$scope.numTotal = 0;
 			$scope.gettysburg = 'Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in liberty, and dedicated to the proposition that /"all men are created equal./"';
 			$scope.heroes = [
-			{'name': 'Batman', 'publisher': 'DC Comics'},
-			{'name': 'Green Lantern', 'publisher': 'DC Comics'},
-			{'name': 'Cat Woman', 'publisher': 'DC Comics'},
-			{'name': 'Hawkman', 'publisher': 'DC Comics'},
-			{'name': 'Bizarro', 'publisher': 'DC Comics'},
-			{'name': 'Iron Man', 'publisher': 'Marvel'},
-			{'name': 'Captain America', 'publisher': 'Marvel'},
-			{'name': 'Hulk', 'publisher': 'Marvel'},
-			{'name': 'Spiderman', 'publisher': 'Marvel'},
-			{'name': 'Storm', 'publisher': 'Marvel'}
+				{'name': 'Batman', 'publisher': 'DC Comics'},
+				{'name': 'Green Lantern', 'publisher': 'DC Comics'},
+				{'name': 'Cat Woman', 'publisher': 'DC Comics'},
+				{'name': 'Hawkman', 'publisher': 'DC Comics'},
+				{'name': 'Bizarro', 'publisher': 'DC Comics'},
+				{'name': 'Iron Man', 'publisher': 'Marvel'},
+				{'name': 'Captain America', 'publisher': 'Marvel'},
+				{'name': 'Hulk', 'publisher': 'Marvel'},
+				{'name': 'Spiderman', 'publisher': 'Marvel'},
+				{'name': 'Storm', 'publisher': 'Marvel'}
 			];
 
 			$scope.orderProp = 'name';
@@ -100,18 +105,18 @@
 			$scope.setCurBgColor = function() {
 				$scope.bgColor = '#dddddd';
 			};
-
 		});
 
+// colors view controller
 	angular
 		.module('Appology')
-		.controller('colorsCtrl', function ($scope, matchFactory){
+		.controller('colorsCtrl', function ($scope, colorTilesFactory){
 			$scope.icons = {};
-			var promise = matchFactory.getColors();
+			var promise = colorTilesFactory.getColors();
 			// retrieve a list of potential colors to use for the tiles
 			promise.then(function(colorData){
 				var colors = colorData;
-				var promise = matchFactory.getIcons();
+				var promise = colorTilesFactory.getIcons();
 				// retrieve a list of potential icons to use for the tiles
 				promise.then(function(iconData){
 					var icons = iconData;
@@ -120,59 +125,6 @@
 					}
 				});
 			});
-		});
-
-	angular
-		.module('Appology')
-		.controller('matchCtrl', function ($scope, $timeout, matchFactory){
-			$scope.firstPick = '';
-			$scope.pick1 = -1;
-			$scope.pick2 = -1;
-			$scope.winners = [];
-			$scope.gameBoard = [];
-
-
-			var promise = matchFactory.getColors();
-			// retrieve a list of potential colors to use for the tiles
-			promise.then(function(colorData){
-				var colors = colorData;
-				var promise = matchFactory.getIcons();
-				// retrieve a list of potential icons to use for the tiles
-				promise.then(function(iconData){
-					var icons = iconData;
-					$scope.gameBoard = setupMatches(8,icons,colors);
-				});
-			});
-
-			$scope.pickMe = function($index, picked){
-				if($scope.firstPick == ''){
-					$scope.firstPick = picked;
-					$scope.pick1 = $index;
-				} else {
-					$scope.pick2 = $index
-
-					if($scope.firstPick == picked){
-						$timeout(matchResult,1000);
-					} else {
-						$timeout(noMatchResult,1000);
-					}
-					$scope.firstPick = '';
-				}
-			};
-
-			function matchResult(){
-				$scope.winners[$scope.pick1] = 'true';
-				$scope.winners[$scope.pick2] = 'true';
-				// $scope.pick1 = -1;
-				// $scope.pick2 = -1;
-				$scope.matchResult = 'yay';
-			}
-
-			function noMatchResult(){
-				$scope.pick1 = -1;
-				$scope.pick2 = -1;
-				$scope.matchResult = 'boo';
-			}
 		});
 
 })();

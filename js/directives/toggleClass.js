@@ -1,6 +1,7 @@
 (function() {
 	'use strict';
 
+	// used by views/restCalls.html to flip the cards
 	angular
 		.module('Appology')
 		.directive('toggleClass', function() {

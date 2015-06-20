@@ -1,9 +1,21 @@
 (function() {
 	'use strict';
 
+//------------------------------ services  ------------------------------
+
 	angular
 		.module('Appology')
-		.factory('matchFactory', function($q, $http) {
+		.service('configuration', function() {
+			this.initialize = function(){
+				return "hi world!";
+			};
+		});
+
+//------------------------------ factories  ------------------------------
+
+	angular
+		.module('Appology')
+		.factory('colorTilesFactory', function($q, $http) {
 			return {
 				getColors: function(){
 					var deferred = $q.defer();
@@ -73,15 +85,6 @@
 				}
 			}
 
-		});
-
-		// example .servicer code
-	angular
-		.module('Appology')
-		.service('helloWorldFromService', function() {
-			this.sayHello = function() {
-				return "Hello, World!"
-			};
 		});
 
 })();
