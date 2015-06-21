@@ -82,6 +82,7 @@
 	angular
 		.module('Appology')
 		.controller('mainCtrl', function ($scope, configuration){
+			$scope.readMe = false;
 			$scope.time = new Date();
 			$scope.numTotal = 0;
 			$scope.gettysburg = 'Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in liberty, and dedicated to the proposition that /"all men are created equal./"';
@@ -101,6 +102,10 @@
 			$scope.orderProp = 'name';
 
 			configuration.initialize();
+
+			$scope.toggleReadme = function(){
+				$scope.readMe = !$scope.readMe;
+			}
 
 			$scope.setCurBgColor = function() {
 				$scope.bgColor = '#dddddd';

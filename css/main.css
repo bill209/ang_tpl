@@ -97,4 +97,23 @@ footer {
 	margin-bottom: 20px;
 }	
 
+#readme h4 {
+	cursor: pointer;
+}
+.readmeContent p {
+	font-size: 15px;	
+}
 
+.readmeContent { 
+	height: 100%;
+	max-height: 0;
+	overflow: auto;
+	 -webkit-transition: height 1s ease-out;
+	 -moz-transition: height 1s ease-out;
+	 -o-transition: height 1s ease-out;
+	 transition: max-height 1s ease-out;
+}
+
+.readmeContent_show{ 
+	 max-height: 500px; 
+}
