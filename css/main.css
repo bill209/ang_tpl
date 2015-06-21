@@ -29,6 +29,14 @@ body {
 
 /* --------------------------- routing  section --------------------------- */
 
+/* this lightens the nav items on the dark background of the about page */
+ul.navbar-right li a.hiliteNav:hover { color: #ddd; }
+
+div.navbar-header.hiliteNav {
+  position: relative;
+  z-index: 9;
+}
+
 .nav li {
 	z-index: 20;
 }

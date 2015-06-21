@@ -14,33 +14,47 @@
 </head>
 <!-- appName -->
 <body ng-app="Appology" ng-controller='bodyCtrl' ng-style='bodyBgColor'>
-<div class='container'>
-<!-- routing -->
-<nav class="navbar navbar-default">
-	<div id='navbar'>
-		<ul class="nav navbar-nav navbar-right">
-			<li role="presentation" ng-class="getClass('/main')"><a href="#/">Home</a></li>
-			<li role="presentation" ng-class="getClass('/about')"><a href="#/about" >About</a></li>
-			<li role="presentation" ng-class="getClass('/restCalls')"><a href="#/restCalls">Rest Calls</a></li>
-			<li role="presentation" ng-class="getClass('/colors')"><a href="#/colors">Colors</a></li>
-			<li role="presentation" ng-class="getClass('/test')"><a href="#/test">t</a></li>
-		</ul>
-	</div>
-	</nav>
-<!-- end routing -->
+	<div class='container'>
 
-	<div ng-view></div>
+		<!-- navbar -->
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header" ng-class="{ hiliteNav: isAbout() }" >
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a ng-class="{ active: isActive('/')}" class="navbar-brand" href="#/">Home</a>
+				</div>
 
-	<div id='footer' class="footer">
-		<p>© Company 2015</p>
-	</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li ng-class="{ active: isActive('/about')}"><a href="#/about">About</a></li>
+						<li ng-class="{ active: isActive('/restCalls')}"><a ng-class="{ hiliteNav: isAbout() }" href="#/restCalls">Rest Calls</a></li>
+						<li ng-class="{ active: isActive('/colors')}"><a ng-class="{ hiliteNav: isAbout() }" href="#/colors">Colors</a></li>
+						<li ng-class="{ active: isActive('/test')}"><a ng-class="{ hiliteNav: isAbout() }" href="#/test">Test</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<!-- end navbar -->
+
+		<div ng-view></div>
+
+		<div id='footer' class="footer">
+			<p>© Company 2015</p>
+		</div>
 	</div>
 
 	<script src="js/libs/jquery/jquery-2.0.3.js"></script>
 
 	<script src="js/libs/angular/angular.min-1.3.13.js"></script>
-<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> -->
-<!--	<script src="js/libs/angular/angular.min.js"></script> -->
+	<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> -->
+	<!--	<script src="js/libs/angular/angular.min.js"></script> -->
 	<script src="js/libs/angular/angular-route.js"></script>
 	<script src="js/libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
 	<script src="css/angular-flip-master/flip.js"></script>
