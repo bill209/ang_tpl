@@ -42,6 +42,16 @@
 				address: '1600 Amphitheatre'
 			};
 
+			// adds the active class to the chosen nav item
+			$scope.isActive = function (viewLocation) { 
+					return viewLocation === $location.path();
+			};
+
+			// this lightens the nav items on the dark background of the about page
+			$scope.isAbout = function(bmd){
+				return $location.path() === '/about';
+			}
+
 			// routing: adding active class to nav item
 			$scope.getClass = function(path) {
 				if ($location.path().substr(0, path.length) == path) {
