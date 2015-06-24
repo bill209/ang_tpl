@@ -34,44 +34,28 @@
 //  body controller
 	angular
 		.module('Appology')
-		.controller('bodyCtrl',function ($scope, $location){
-			$scope.bodyBgColor={'background-color':'#ffffff'}
+		.controller('BodyCtrl',function ($scope, $location){
+			this.bodyBgColor={'background-color':'#ffffff'}
 
-			$scope.customer = {
-				name: 'Naomi',
-				address: '1600 Amphitheatre'
-			};
-
+			// nav bar functions
 			// adds the active class to the chosen nav item
-			$scope.isActive = function (viewLocation) { 
+			this.isActive = function (viewLocation) { 
 					return viewLocation === $location.path();
 			};
-
 			// this lightens the nav items on the dark background of the about page
-			$scope.isAbout = function(bmd){
+			this.isAbout = function(bmd){
 				return $location.path() === '/about';
 			}
 
-			// routing: adding active class to nav item
-			$scope.getClass = function(path) {
-				if ($location.path().substr(0, path.length) == path) {
-					return "active"
-				} else {
-					return ""
-				}
-			}
 		});
 
 // restCalls view controller
 	angular
 		.module('Appology')
 		.controller('restCallsCtrl',function($scope, $routeParams, restCallsFactory) {
-			// $scope.flipIt = function(){
-			// 	console.log('flipping');
-			// 	this.toggleClass('flipped');
-			// };
-			var artist = 'jack+johnson';
-			var promise = restCallsFactory.getItunesMusic(artist);
+
+			$scope.artist = 'jack johnson';
+			var promise = restCallsFactory.getItunesMusic($scope.artist.replace(/ /g, '+'));
 			promise.then(function(musicData){
 				$scope.iTunes = musicData;
 			});
@@ -81,8 +65,8 @@
 				$scope.spacePeeps = spaceData;
 			});
 
-			var author = 'terry+pratchett';
-			var promise = restCallsFactory.getGoogleBooks(author);
+			$scope.author = 'terry pratchett';
+			var promise = restCallsFactory.getGoogleBooks($scope.author.replace(/ /g, '+'));
 			promise.then(function(bookData){
 				$scope.books = bookData;
 			});
@@ -91,23 +75,20 @@
 // main view controller
 	angular
 		.module('Appology')
-		.controller('mainCtrl', function ($scope, configuration){
+		.controller('mainCtrl', function ($scope, configuration, heroesFactory){
 			$scope.readMe = false;
 			$scope.time = new Date();
 			$scope.numTotal = 0;
+			$scope.customer = {
+				name: 'Naomi',
+				address: '1600 Amphitheatre'
+			};
 			$scope.gettysburg = 'Four score and seven years ago our fathers brought forth, upon this continent, a new nation, conceived in liberty, and dedicated to the proposition that /"all men are created equal./"';
-			$scope.heroes = [
-				{'name': 'Batman', 'publisher': 'DC Comics'},
-				{'name': 'Green Lantern', 'publisher': 'DC Comics'},
-				{'name': 'Cat Woman', 'publisher': 'DC Comics'},
-				{'name': 'Hawkman', 'publisher': 'DC Comics'},
-				{'name': 'Bizarro', 'publisher': 'DC Comics'},
-				{'name': 'Iron Man', 'publisher': 'Marvel'},
-				{'name': 'Captain America', 'publisher': 'Marvel'},
-				{'name': 'Hulk', 'publisher': 'Marvel'},
-				{'name': 'Spiderman', 'publisher': 'Marvel'},
-				{'name': 'Storm', 'publisher': 'Marvel'}
-			];
+
+			var promise = heroesFactory.getHeroes();
+			promise.then(function(heroData){
+				$scope.heroes = heroData;
+			});
 
 			$scope.orderProp = 'name';
 
