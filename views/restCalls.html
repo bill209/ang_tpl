@@ -8,7 +8,7 @@
 					<div class="card" toggle-class="flipped"> 
 						<div class="face front"> 
 							<div class='rest_results'>
-								<h4>{{iTunes[0].artistName}}<br/><small>iTunes Songs</small></h4>
+								<h4>{{artist}}<br/><small>iTunes Songs</small></h4>
 								<ul id='iTunes' class="list-unstyled">
 									<li ng-repeat="song in iTunes | orderBy:song.releaseDate">
 										<span>{{song.trackName}}</span>
@@ -33,7 +33,7 @@
 						<div class="face front"> 
 
 							<div class='rest_results'>
-								<h4>{{books[0].volumeInfo.authors[0]}} Books</h4>
+								<h4>{{author}} Books</h4>
 								<ul id='books' class="list-unstyled">
 									<li ng-repeat="book in books | orderBy:book.volumeInfo.publishDate">
 										<span>{{book.volumeInfo.title}}</span>

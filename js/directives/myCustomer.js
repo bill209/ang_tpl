@@ -5,7 +5,7 @@
 		.module('Appology')
 		.directive('myCustomer', function() {
 			return {
-				template: 'Name: {{customer.name}} Address: {{customer.address}}'
+				template: 'Name: {{mainCtrl.customer.name}} Address: {{mainCtrl.customer.address}}'
 			};
 		});
 

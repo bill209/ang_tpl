@@ -1,12 +1,12 @@
 
-	<div  ng-controller='mainCtrl'>
+	<div  ng-controller='MainCtrl as mainCtrl'>
 		<div class="jumbotron">
 			<h1>Angular Template v0.1</h1>
 			<p class="lead">This angular app template was created by the node app buildIt v0.1.</p>
 			<div class="accordion vertical">
 				<section id='readme'>
-					<h4><a ng-click='toggleReadme()'>Click for the read me.</a></h4>
-					<div class='readmeContent' ng-class="{'readmeContent_show': readMe == true}">
+					<h4><a ng-click='mainCtrl.toggleReadme()'>Click for the read me.</a></h4>
+					<div class='readmeContent' ng-class="{'readmeContent_show': mainCtrl.readMe == true}">
 						<p> The node app was created as an exercise to learn nodejs. Creating an angular template with this app required a grasp on many aspects of nodejs, including but not limited to: nodejs structure, use of external files, dependent and parallel asynchronous calls, local file access, and many (many) node modules, such as: sandbox, Q, prompt, fs, exports, readline, jade, ncp, mkdirp and swig. and this does not include the several node modules that were installed then ripped out due to one issue or another. Having the function of this app create an angular template also had one other advantage, it helped me become reacquainted with angularjs. : ) </p>
 						<p>You can fork the node app at <a href='https://github.com/bill209'>github - bill209</a>.</p>
 						<p>Where's the value to you? Well, depending on your skill level, its value is either minimal or non-existent. If you are relatively new to angularjs, then this app will provide you with a custom angularjs template that largely follows the coding patterns as outlined by John Papa.<sup>1</sup> You can read more about his patterns in his <a href=''>Angular Styleguide</a>. </p>
@@ -33,7 +33,7 @@
 				<div my-customer></div>
 
 				<h4>Filter: limit chars</h4>
-				<p> {{gettysburg | cut:true:100:' ...'}}</p>
+				<p> {{mainCtrl.gettysburg | cut:true:100:' ...'}}</p>
 
 			</div>
 
@@ -42,13 +42,13 @@
 				<h4>Data Binding: super heroes</h4>
 				<div class='well'>
 					Sort by:
-					<select ng-model="orderProp">
+					<select ng-model="mainCtrl.orderProp">
 						<option value="name">Name</option>
 						<option value="publisher">Publisher</option>
 					</select>
 
 					<ul id='heroes' class="list-unstyled">
-						<li ng-repeat="hero in heroes | filter:query | orderBy:orderProp">
+						<li ng-repeat="hero in heroes | filter:query | orderBy:mainCtrl.orderProp">
 							<span>{{hero.name}}</span>
 							<span>{{hero.publisher}}</span>
 						</li>
@@ -56,7 +56,7 @@
 				</div>
 			</div>
 		</div>
-		<div class='row footnotes' ng-class="{'readmeContent_show': readMe == true}">
+		<div class='row footnotes' ng-class="{'readmeContent_show': mainCtrl.readMe == true}">
 			<p><sup>1</sup> Please note that Mr Papa has in no way endorsed this app and any angularjs ugliness herein should be laid entirely at my feet.</p>
 		</div>
 	</div>

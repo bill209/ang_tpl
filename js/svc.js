@@ -15,6 +15,23 @@
 
 	angular
 		.module('Appology')
+		.factory('heroesFactory', function($q, $http){
+			return {
+				getHeroes: function(){
+					var deferred = $q.defer();
+					var url ='data/heroes.json';
+					$http
+						.get(url)
+						.then(function(d){
+							deferred.resolve(angular.fromJson(d.data))
+						})
+					return deferred.promise;
+				}
+			}
+		});
+
+	angular
+		.module('Appology')
 		.factory('colorTilesFactory', function($q, $http) {
 			return {
 				getColors: function(){
