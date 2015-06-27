@@ -13,6 +13,7 @@
 
 //------------------------------ factories  ------------------------------
 
+//------------------------------ heroes factory  ------------------------------
 	angular
 		.module('Appology')
 		.factory('heroesFactory', function($q, $http){
@@ -30,6 +31,7 @@
 			}
 		});
 
+//------------------------------ colorTiles factory  ------------------------------
 	angular
 		.module('Appology')
 		.factory('colorTilesFactory', function($q, $http) {
@@ -53,10 +55,11 @@
 							deferred.resolve(angular.fromJson(d.data));
 						});
 					return deferred.promise;
-				}		
+				}
 			}
 		});
 
+//------------------------------ restCalls factory  ------------------------------
 	angular
 		.module('Appology')
 		.factory('restCallsFactory', function($q, $http){
@@ -104,4 +107,24 @@
 
 		});
 
+//------------------------------ firebase factory  ------------------------------
+	angular
+		.module('Appology')
+		.factory('firebaseFactory',function($q,$http,$firebaseArray){
+
+		var myFirebase = 'https://boiling-fire-3340.firebaseio.com/thoughts/';
+
+		return {
+			getThoughts: function(){
+				var fb = new Firebase(myFirebase);
+				return $firebaseArray(fb);
+			},
+			addThought: function(data) {
+				//data: {user: $scope.glob.username, title: title, idx: idx
+				var fb = new Firebase(myFirebase);
+				var newRef = fb.push({'pondering':data.pondering});
+				return newRef.name();
+			}
+		}
+	});
 })();
