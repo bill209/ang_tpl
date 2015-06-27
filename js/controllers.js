@@ -39,7 +39,7 @@
 
 			// nav bar functions
 			// adds the active class to the chosen nav item
-			this.isActive = function (viewLocation) { 
+			this.isActive = function (viewLocation) {
 					return viewLocation === $location.path();
 			};
 			// this lightens the nav items on the dark background of the about page
@@ -116,5 +116,28 @@
 				});
 			});
 		});
+
+	angular
+		.module('Appology')
+		.controller('FirebaseCtrl', fbCtrl );
+
+		function fbCtrl(firebaseFactory, $firebaseArray){
+			var vm = this;
+			vm.hoverDelete = -1;
+//			vm.recordsExists = true;
+			vm.thoughts = {};
+			vm.addThought = addThought;
+			vm.getThoughts = getThoughts;
+
+			function getThoughts(){
+				vm.thoughts = firebaseFactory.getThoughts();
+				console.log('vm.thoughts',vm.thoughts);
+			}
+			function addThought(d){
+				var id = firebaseFactory.addThought(d);
+//				checkIfRecordsExists();
+			}
+			vm.getThoughts();
+		}
 
 })();

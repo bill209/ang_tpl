@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('Appology',['ngRoute']);
+		.module('Appology',['ngRoute','firebase']);
 
 	// routing
 	angular

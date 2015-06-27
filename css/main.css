@@ -13,7 +13,7 @@ body {
 }
 
 #footer {
-	height: 100px; 
+	height: 100px;
 	background-color: #f5f5f5;
 	padding: 40px 20px 20px 20px;
 	color: #ddd;
@@ -89,7 +89,7 @@ div.navbar-header.hiliteNav {
 	color: #888;
 	font-size: 120px;
 	font-family: museo-slab, Georgia, "Times New Roman", Times, serif;
-	font-weight: 500;	
+	font-weight: 500;
 }
 
 #colors h2 {
@@ -107,16 +107,16 @@ div.navbar-header.hiliteNav {
 	color: inherit;
 	margin-top: -20px;
 	margin-bottom: 20px;
-}	
+}
 
 #readme h4 {
 	cursor: pointer;
 }
 .readmeContent p {
-	font-size: 15px;	
+	font-size: 15px;
 }
 
-.readmeContent, .footnotes { 
+.readmeContent, .footnotes {
 	height: 100%;
 	max-height: 0;
 	overflow: auto;
@@ -126,6 +126,22 @@ div.navbar-header.hiliteNav {
 	 transition: max-height 1s ease-out;
 }
 
-.readmeContent_show{ 
-	 max-height: 500px; 
+.readmeContent_show{
+	 max-height: 500px;
+}
+
+/* firebase */
+#firebase .delete {
+	float: right;
+	cursor: pointer;
+}
+#firebase .delete:hover {
+	font-weight: 700;
+}
+#firebase .boldDelete {
+	font-weight: 700;
+}
+#firebase input {
+	height: 33px;
+	margin-bottom: 10px;
 }
