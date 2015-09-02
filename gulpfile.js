@@ -1,5 +1,5 @@
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
+var gulp = require('gulp');
+var connect = require('gulp-connect');
 
 gulp.task('connect', function() {
   connect.server({
@@ -9,22 +9,13 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('html', function () {
+gulp.task('htmlwatcher', function () {
   gulp.src('*.html')
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['*.html','views/*.html', 'css/*.css', 'js/*.js'], ['html']);
-});
-
-gulp.task('ang_tpl', function() {
-  connect.server({
-    port: 8888
-  });
-  // run some headless tests with phantomjs
-  // when process exits:
-  connect.serverClose();
+  gulp.watch(['*.html','views/*.html', 'css/*.css', 'js/*.js'], ['htmlwatcher']);
 });
 
 gulp.task('default', ['connect', 'watch']);

@@ -131,7 +131,6 @@
 
 			function getThoughts(){
 				vm.thoughts = firebaseFactory.getThoughts();
-				console.log('vm.thoughts',vm.thoughts);
 			}
 			function addThought(d){
 				var id = firebaseFactory.addThought(d);
